@@ -20,7 +20,7 @@ let navbarHtmlTemplate = `
             YouTube
         </a-->
 
-        <button type="button" class="btn btn-info" id="theme-button">
+        <button type="button" class="btn btn-info" id="theme-button" style="display: none;">
             <i class="" id="theme-button-icon"></i>
         </button>
     </div>
