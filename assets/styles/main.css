@@ -1,0 +1,11 @@
+:root
+{
+    --navbar-background: rgb(24, 24, 24);
+    --navbar-text: rgb(255, 255, 255);
+}
+
+body
+{
+    margin: 0px;
+    padding: 0px;
+}
