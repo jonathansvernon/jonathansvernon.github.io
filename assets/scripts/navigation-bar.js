@@ -1,7 +1,8 @@
 let navbarHtmlTemplate = `
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- Site title -->
-    <a class="navbar-brand">jvernon.net</a>
+    <!--a id="theme-button" class="navbar-brand">jvernon.net</a-->
+    <button type="button" id="theme-button" class="btn navbar-brand">jvernon.net</button>
 
     <!-- Hamburger menu -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,14 +16,18 @@ let navbarHtmlTemplate = `
         </ul>
 
         <!-- Right side content -->
-        <!--a class="btn btn-danger" target="_blank" href="https://www.youtube.com/channel/UCiZsiO7Bei3vG1HHsyDTcIw">
+        <!-- YouTube link -->
+        <a class="btn btn-outline-danger socialbtn" target="_blank" href="https://www.youtube.com/channel/UCiZsiO7Bei3vG1HHsyDTcIw">
             <i class="fab fa-youtube"></i>
-            YouTube
+        </a>
+        <!-- Twitter link -->
+        <!--a class="btn btn-outline-info socialbtn" target="_blank" href="https://twitter.com/modderwizard">
+            <i class="fab fa-twitter"></i>
         </a-->
-
-        <button type="button" class="btn btn-info" id="theme-button" style="display: none;">
-            <i class="" id="theme-button-icon"></i>
-        </button>
+        <!-- GitHub link -->
+        <a class="btn btn-outline-secondary socialbtn" target="_blank" href="https://github.com/modderwizard">
+            <i class="fab fa-github"></i>
+        </a>
     </div>
 </nav>
 `;
@@ -59,6 +64,7 @@ let populateNavigationBar = function()
         if(parseInt(indexStr) == i)
         {
             navitemContainer.classList.add("active");
+            navitemContainer.classList.add("forceunderline");
         }
 
         let navitem = createElementWithClass("a", "nav-link");

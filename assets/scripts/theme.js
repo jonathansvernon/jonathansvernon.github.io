@@ -33,7 +33,6 @@ var currentTheme = (getCookie("theme") || "light");
 
 // Get reference to the theme button
 var themeButton = document.getElementById("theme-button");
-var themeButtonIcon = document.getElementById("theme-button-icon");
 
 function changeTheme()
 {
@@ -51,11 +50,10 @@ function setTheme()
 	// Change the theme colors
 	var isLight = (currentTheme == "light");
 
-	themeButtonIcon.className = (isLight ? "fas fa-sun" : "fas fa-moon");
-	//document.body.style.backgroundColor = (isLight ? "#FFFFFF" : "#141719");
-	document.body.style.backgroundColor = (isLight ? "#FFFFFF" : "#161616");
+	document.body.style.backgroundColor = (isLight ? "#FFFFFF" : /*"#141719"*/"#161616");
 	document.body.style.color = (isLight ? "#5A5A5A" : "#EEEEEE");
 
+	// Change Minecraft picture :)
 	let test = document.getElementById("mc-picture");
 	if(test != null)
 	{
