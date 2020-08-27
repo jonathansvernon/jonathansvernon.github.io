@@ -35,7 +35,8 @@ let navbarHtmlTemplate = `
 let navbarData =
 [
     "Home", "/",
-    "Portfolio", "/portfolio/",
+    "Games", "/games/",
+    "Websites", "/websites/",
     "Contact", "/contact/",
 ];
 

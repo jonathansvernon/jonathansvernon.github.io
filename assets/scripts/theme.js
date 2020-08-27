@@ -48,16 +48,13 @@ function changeTheme()
 function setTheme()
 {
 	// Change the theme colors
-	var isLight = (currentTheme == "light");
-
-	document.body.style.backgroundColor = (isLight ? "#FFFFFF" : /*"#141719"*/"#161616");
-	document.body.style.color = (isLight ? "#5A5A5A" : "#EEEEEE");
+	document.documentElement.setAttribute("data-theme", currentTheme);
 
 	// Change Minecraft picture :)
 	let test = document.getElementById("mc-picture");
 	if(test != null)
 	{
-		test.src = (isLight ? "/assets/images/minecraft_0_day.png" : "/assets/images/minecraft_0_night.png");
+		test.src = (currentTheme == "light" ? "/assets/images/minecraft_0_day.png" : "/assets/images/minecraft_0_night.png");
 	}
 };
 
