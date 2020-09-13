@@ -55,6 +55,16 @@
     margin: 0.5vw;
     padding: 0.5vw;
 
+    border-radius: 0.25vw;
+
     color: var(--button-text);
     background-color: var(--button-background);
+}
+
+.game-button:hover
+{
+    text-decoration: none;
+
+    color: var(--body-text);
+    background-color: var(--button-hover);
 }

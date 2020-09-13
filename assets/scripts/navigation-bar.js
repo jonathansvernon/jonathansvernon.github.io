@@ -61,11 +61,15 @@ let populateNavigationBar = function()
     {
         let navitemContainer = createElementWithClass("li", "nav-item");
 
-        let indexStr = document.getElementsByName("navbarIndex")[0].getAttribute("content");
-        if(parseInt(indexStr) == i)
+        let elementsTemp = document.getElementsByName("navbarName");
+        if(elementsTemp.length > 0)
         {
-            navitemContainer.classList.add("active");
-            navitemContainer.classList.add("forceunderline");
+            let highlightedItemName = elementsTemp[0].getAttribute("content");
+            if(highlightedItemName == navbarData[i * 2])
+            {
+                navitemContainer.classList.add("active");
+                navitemContainer.classList.add("forceunderline");
+            }
         }
 
         let navitem = createElementWithClass("a", "nav-link");
