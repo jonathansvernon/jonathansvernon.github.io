@@ -2,13 +2,11 @@
 {
     display: flex;
 
-    width: 100%;
-    height: 100%;
-}
+    flex-wrap: wrap;
+    justify-content: center;
 
-#games-left, #games-right
-{
-    width: 50%;
+    max-width: 100%;
+    width: 100%;
 }
 
 .title-container
@@ -18,6 +16,8 @@
 
 .project-container
 {
+    flex-basis: 25%;
+
     margin: 0px 8px 16px 8px;
     padding: 16px;
 

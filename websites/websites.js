@@ -1,17 +1,15 @@
 let websitesList =
 [
-    "jvernon.net", "/assets/images/project_jvernonnet.png", "2020 - Bootstrap", "Hey, it's the website you're on right now! This website was created to show off all of the content that I have created.", "/", "PLACEHOLDER",
-    "Brent Coles for Boise", "/assets/images/project_colesformayor.png", "2019 - HTML, PHP, CSS, JavaScript", "This website was created for Brent Coles' campaign for Boise mayor. I was in charge of creating, hosting, and maintaining the website throughout the duration of his election campaign. The website is now defunct, but you can view a screenshot gallery of the website.", "/websites/colesformayor/", "View screenshots of the website here",
+    "jvernon.net", "/assets/images/project_jvernonnet.png", "2020 - Bootstrap", "Hey, it's the website you're on right now! This website was created to show off all of the content that I have created.", "/",
+    "Brent Coles for Boise", "/assets/images/project_colesformayor.png", "2019 - HTML, PHP, CSS, JavaScript", "This website was created for Brent Coles' campaign for Boise mayor. I was in charge of creating, hosting, and maintaining the website throughout the duration of his election campaign. The website is now defunct, but you can view a screenshot gallery of the website.", "/websites/colesformayor/",
 ];
 
-let listEntryLength = 6;
+let listEntryLength = 5;
 
 let populateGames = function()
 {
     for(var i = 0; i < websitesList.length; i += listEntryLength)
     {
-        var projNumb = i / listEntryLength;
-
         // Create elements
         var projectContainer = document.createElement("div");
         projectContainer.className = "project-container";
@@ -23,10 +21,12 @@ let populateGames = function()
 
         var projectName = document.createElement("h2");
         projectName.classList = ["project-name", "featurette-heading"];
+        
         var projectNameLink = document.createElement("a");
         projectNameLink.innerHTML = websitesList[i];
         projectNameLink.href = websitesList[i + 4];
         projectName.appendChild(projectNameLink);
+
         projectContainer.appendChild(projectName);
 
         var projectTech = document.createElement("p");
@@ -39,15 +39,8 @@ let populateGames = function()
         projectDescription.innerHTML = websitesList[i + 3];
         projectContainer.appendChild(projectDescription);
 
-        // Add the project to the correct side
-        if(projNumb % 2 == 0)
-        {
-            document.getElementById("websites-left").appendChild(projectContainer);
-        }
-        else
-        {
-            document.getElementById("websites-right").appendChild(projectContainer);
-        }
+        // Add the project to the page
+        document.getElementById("websites-list").appendChild(projectContainer);
     }
 };
 

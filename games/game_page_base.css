@@ -1,0 +1,60 @@
+.title-container
+{
+    text-align: center;
+}
+
+.title-logo
+{
+    max-width: 90vw;
+    max-height: 16vh;
+    width: auto;
+    height: auto;
+
+    image-rendering: optimizeQuality;
+}
+
+.carousel-container
+{
+    margin: 0 auto;
+}
+
+.carousel-container, .carousel-item, .carousel-item > img
+{
+    max-width: 100vw;
+    width: 64vh;
+    height: 36vh;
+
+    object-fit: contain;
+
+    background-color: var(--body-background);
+}
+
+.description-container
+{
+    width: 40%;
+
+    margin: 0 auto;
+    margin-top: 4vh;
+
+    font-size: larger;
+    text-align: center;
+
+    color: var(--body-text);
+}
+
+.game-buttons-container
+{
+    display: flex;
+    justify-content: center;
+
+    margin: 0 auto;
+}
+
+.game-button
+{
+    margin: 0.5vw;
+    padding: 0.5vw;
+
+    color: var(--button-text);
+    background-color: var(--button-background);
+}
