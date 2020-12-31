@@ -42,7 +42,7 @@
     color: var(--body-text);
 }
 
-.game-buttons-container
+.project-buttons-container
 {
     display: flex;
     justify-content: center;
@@ -50,7 +50,7 @@
     margin: 0 auto;
 }
 
-.game-button
+.project-button
 {
     margin: 0.5vw;
     padding: 0.5vw;
@@ -61,7 +61,7 @@
     background-color: var(--button-background);
 }
 
-.game-button:hover
+.project-button:hover
 {
     text-decoration: none;
 

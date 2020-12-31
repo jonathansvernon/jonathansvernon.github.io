@@ -35,6 +35,7 @@ let navbarHtmlTemplate = `
 let navbarData =
 [
     "Home", "/",
+	//"Software", "/software/",
     "Games", "/games/",
     "Websites", "/websites/",
     "Contact", "/contact/",

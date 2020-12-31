@@ -1,4 +1,4 @@
-#games-list
+#projects-list
 {
     display: flex;
 
@@ -16,7 +16,7 @@
 
 .project-container
 {
-    flex-basis: 25%;
+    flex-basis: 20%;
 
     margin: 0px 8px 16px 8px;
     padding: 16px;
@@ -25,4 +25,9 @@
 
     background-color: var(--card-background);
     color: var(--card-text);
+}
+
+.project-image
+{
+	height: 300px;
 }
