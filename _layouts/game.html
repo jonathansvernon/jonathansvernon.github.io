@@ -1,0 +1,49 @@
+---
+layout: default
+title: {{ page.title }}
+---
+
+{{ content }}
+
+<script src="/assets/scripts/project_page.js"></script>
+
+<div class="title-container">
+	<img class="title-logo" src="/assets/images/projects/games/{{ page.title_id }}/logo.png">
+</div>
+
+<div style="padding: 25px;"></div>
+
+<div class="automatic-content">
+	<!-- Screenshots -->
+	<div class="carousel-container">
+		<div id="projectPics" class="carousel slide carousel-fade" data-ride="carousel">
+			<ol class="carousel-indicators"></ol>
+
+			<div class="carousel-inner"></div>
+
+			<div class="carousel-control-prev" href="#projectPics" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</div>
+			<div class="carousel-control-next" href="#projectPics" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Buttons -->
+	<div class="project-buttons-container">
+		<a class="project-button" href="{{ page.download_link }}" target="_blank">Download {{ page.platform }}</a>
+		<a class="project-button" href="{{ page.source_link }}" target="_blank">Source Code</a>
+	</div>
+
+	<!-- Description -->
+	<div class="description-container">
+		<p class="description-text">{{ page.description }}</p>
+	</div>
+</div>
+
+<script>
+{% for i in (0..page.last_screenshot_number) %}
+	addImage("/assets/images/projects/games/{{ page.title_id }}/screenshot_{{ i }}.png");
+{% endfor %}
+</script>

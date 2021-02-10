@@ -1,0 +1,53 @@
+.navbar
+{
+	display: flex;
+
+	background-color: var(--navbar-background);
+}
+
+.navbar-content
+{
+	display: flex;
+	
+	margin: auto;
+
+	width: 1200px;
+}
+
+.nav-link
+{
+	color: var(--navbar-text-inactive);
+}
+
+.nav-link:hover
+{
+	color: var(--navbar-text-hover);
+}
+
+.nav-link.active
+{
+	color: var(--navbar-text);
+}
+
+.navbar-brand
+{
+	color: var(--navbar-text-hover);
+}
+
+.navbar-brand:hover
+{
+	color: var(--navbar-text);
+}
+
+.socialbtn
+{
+    margin-left: 8px;
+}
+
+.force-underline
+{
+    text-decoration: underline !important;
+    text-decoration-color: white;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 8px;
+}

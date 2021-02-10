@@ -1,0 +1,22 @@
+:root
+{
+	--mc-pic-opacity: 1;
+}
+
+[data-theme="dark"]
+{
+	--mc-pic-opacity: 0;
+}
+
+.mc-picture-container
+{
+	background-image: url("/assets/images/minecraft_0_night.png");
+	background-size: cover;
+}
+
+#mc-picture
+{
+	opacity: var(--mc-pic-opacity);
+
+	transition: opacity var(--transition-time);
+}

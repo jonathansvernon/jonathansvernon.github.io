@@ -1,0 +1,40 @@
+.projects-list
+{
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: center;
+
+    max-width: 100%;
+    width: 100%;
+}
+
+.title-container
+{
+    text-align: center;
+}
+
+.project-container
+{
+    flex-basis: 20%;
+
+    margin: 0px 8px 16px 8px;
+    padding: 16px;
+
+    text-align: center;
+
+    background-color: var(--card-background);
+    color: var(--card-text);
+
+	transition: background-color var(--transition-time), color var(--transition-time);
+}
+
+.project-name
+{
+    margin-top: 0.5em;
+}
+
+.project-image
+{
+	height: 300px;
+}
