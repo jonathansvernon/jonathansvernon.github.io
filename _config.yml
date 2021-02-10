@@ -37,7 +37,6 @@ collections_dir: collections_dir
 collections:
   games:
     output: true
-    permalink: /games/:name/
   websites:
     output: false
 
