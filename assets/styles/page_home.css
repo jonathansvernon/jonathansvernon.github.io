@@ -8,6 +8,11 @@
 	--mc-pic-opacity: 0;
 }
 
+.image-container-cheat
+{
+	border: 1px solid var(--outline-color);
+}
+
 .mc-picture-container
 {
 	background-image: url("/assets/images/minecraft_0_night.png");

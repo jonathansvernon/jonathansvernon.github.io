@@ -24,6 +24,7 @@
     text-align: center;
 
     background-color: var(--card-background);
+	border: 1px solid var(--outline-color);
     color: var(--card-text);
 
 	transition: background-color var(--transition-time), color var(--transition-time);
@@ -37,4 +38,6 @@
 .project-image
 {
 	height: 300px;
+
+	border: 1px solid var(--outline-color);
 }

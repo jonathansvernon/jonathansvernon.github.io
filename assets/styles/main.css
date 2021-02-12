@@ -23,6 +23,9 @@
 
 	--link: rgb(0, 123, 255);
 
+	--shadow-color: rgba(0, 0, 0, 0.5);
+    --outline-color: rgba(0, 0, 0, 0.1);
+
 	--transition-time: 500ms;
 }
 
@@ -37,6 +40,8 @@
     --button-background: rgb(37, 38, 39);
     --button-text: rgb(238, 238, 238);
     --button-hover: rgb(47, 48, 49);
+
+	--outline-color: rgba(255, 255, 255, 0.1);
 }
 
 html, body
