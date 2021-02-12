@@ -70,8 +70,7 @@ body
 
 .content-container
 {
-    margin: auto;
-    margin-top: 5em;
+    margin: 5em auto;
 
 	max-width: 80%;
 	min-width: 80%;
