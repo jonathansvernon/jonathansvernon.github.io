@@ -8,9 +8,19 @@
 	--mc-pic-opacity: 0;
 }
 
+.featurette-image
+{
+	width: 100%;
+	height: auto;
+}
+
 .image-container-cheat
 {
-	border: 1px solid var(--outline-color);
+	max-width: 100%;
+	width: auto;
+	height: auto;
+
+	border: 0.0625rem solid var(--outline-color);
 }
 
 .mc-picture-container
@@ -24,4 +34,9 @@
 	opacity: var(--mc-pic-opacity);
 
 	transition: opacity var(--transition-time);
+}
+
+.heading-below
+{
+	margin-top: 2rem;
 }

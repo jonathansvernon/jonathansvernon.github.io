@@ -87,5 +87,8 @@ body
 /* MOBILE */
 @media (max-aspect-ratio: 5/4)
 {
-
+	.content-container
+	{
+		width: 100%;
+	}
 }

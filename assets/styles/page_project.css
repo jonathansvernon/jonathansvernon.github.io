@@ -1,8 +1,8 @@
 .title-logo
 {
-    max-width: 90vw;
-    max-height: 16vh;
-    width: auto;
+    max-width: 80%;
+	width: auto;
+    max-height: 10rem;
     height: auto;
 
     image-rendering: optimizeQuality;
@@ -15,9 +15,8 @@
 
 .carousel-container, .carousel-item, .carousel-item > img
 {
-    max-width: 100vw;
-    width: 64vh;
-    height: 36vh;
+	max-width: 100%;
+    height: 22rem;
 
     object-fit: contain;
 
@@ -26,10 +25,10 @@
 
 .description-container
 {
-    width: 40%;
+    width: 60%;
 
     margin: 0 auto;
-    margin-top: 4vh;
+    margin-top: 1rem;
 
     font-size: larger;
     text-align: center;
@@ -44,15 +43,15 @@
     display: flex;
     justify-content: center;
 
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 
 .project-button
 {
-    margin: 0.5vw;
-    padding: 0.5vw;
+    margin: 0 0.5rem;
+    padding: 0.5rem;
 
-    border-radius: 0.25vw;
+    border-radius: 0.25rem;
 
     color: var(--button-text);
     background-color: var(--button-background);
@@ -66,4 +65,13 @@
 
     color: var(--body-text);
     background-color: var(--button-hover);
+}
+
+/* MOBILE */
+@media (max-aspect-ratio: 5/4)
+{
+	.description-container
+	{
+		width: 80%;
+	}
 }
