@@ -36,7 +36,11 @@
 	transition: opacity var(--transition-time);
 }
 
-.heading-below
+/* MOBILE */
+@media (max-aspect-ratio: 5/4)
 {
-	margin-top: 2rem;
+	.heading-below
+	{
+		margin-top: 2rem;
+	}
 }
