@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     justify-content: center;
 
+	max-width: none;
     width: 100%;
 }
 
