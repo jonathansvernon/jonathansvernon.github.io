@@ -22,7 +22,7 @@ let setActiveNavbarItem = function()
 setActiveNavbarItem();
 
 // Theme code
-let currentTheme = (window.localStorage.getItem("theme") || "light");
+let currentTheme = (window.localStorage.getItem("theme") || "dark");
 let themeButton = document.getElementById("theme-button");
 
 let setTheme = function()
