@@ -12,10 +12,11 @@ stylesheet_name: page_home
 			<h2 class="featurette-heading">Hello! I'm Jonathan Vernon</h2>
 			<p class="lead">
 				I'm a software developer living in Boise, Idaho. 
-				I'm a student at Boise State University, and am currently enrolled in their <a target="_blank" href="https://www.boisestate.edu/gimm/" style="font-weight: bold; font-style: italic;">Games, Interactive Media, and Mobile Technology</a> program.
+				I was previously enrolled in Boise State University's <a target="_blank" href="https://www.boisestate.edu/gimm/" style="font-weight: bold; font-style: italic;">Games, Interactive Media, and Mobile Technology</a> program.
 				I've been programming for about ten years now, and am always looking forward to learning new things!
 			</p>
 		</div>
+
 		<!-- Picture container -->
 		<div class="col-md-5">
 			<div class="image-container-cheat">
@@ -36,6 +37,7 @@ stylesheet_name: page_home
 				</div>
 			</div>
 		</div>
+
 		<!-- Text container -->
 		<div class="col-md-7">
 			<h2 class="featurette-heading heading-below">Where I started</h2>

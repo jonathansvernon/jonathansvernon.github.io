@@ -19,10 +19,10 @@ permalink: /portfolio/
 	{% endfor %}
 </div>
 
-<hr class="featurette-divider">
+<!--hr class="featurette-divider"-->
 
 <!-- Websites -->
-<div class="title-container">
+<!--div class="title-container">
 	<h1>Websites</h1>
 </div>
 
@@ -33,4 +33,4 @@ permalink: /portfolio/
 	{% for website in websites %}
 		{% include element_website_preview.html %}
 	{% endfor %}
-</div>
+</div-->
