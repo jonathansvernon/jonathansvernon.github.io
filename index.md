@@ -43,8 +43,8 @@ stylesheet_name: page_home
 			<h2 class="featurette-heading heading-below">Where I started</h2>
 			<p class="lead">
 				When I was eleven years old, my best friend showed me a game called <a target="_blank" href="https://minecraft.gamepedia.com/Java_Edition_Beta_1.0" style="font-weight: bold; font-style: italic;">Minecraft</a>.
-				When I discovered the large community of people creating modifications for the game, I knew that I wanted to learn how to program so I could join them.
-				So I taught myself Java, and have since also learned to use other languages such as C#, JavaScript, Python, ActionScript 3, and C++.
+				When I discovered the large community of people creating modifications for the game, I knew that I wanted to learn how to program so I could make my own mods.
+				So I taught myself Java, and have since also learned other languages such as C#, JavaScript, Python, ActionScript 3, and C++.
 			</p>
 		</div>
 	</div>

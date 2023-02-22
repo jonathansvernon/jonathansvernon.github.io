@@ -40,6 +40,9 @@ collections:
   games:
     output: true
     permalink: /portfolio/:collection/:name
+  software:
+    output: true
+    permalink: /portfolio/:collection/:name
   websites:
     output: false
     permalink: /portfolio/:collection/:name
