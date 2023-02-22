@@ -31,7 +31,7 @@ github_username: jonathansvernon
 theme: minima
 plugins:
   - jekyll-feed
-  
+
 # Collections
 collections_dir: collections_dir
 collections:
