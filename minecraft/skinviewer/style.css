@@ -19,8 +19,6 @@ body
 
 	padding: 24px;
 
-	height: 100%;
-
 	background-color: #444444;
 }
 
@@ -71,9 +69,6 @@ body
 	.ui-container
 	{
 		flex-direction: row;
-
-		width: 100%;
-		height: auto;
 	}
 
 	.ui-button
