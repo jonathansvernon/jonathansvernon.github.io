@@ -72,6 +72,9 @@ export function loadPlayerModel()
 							// Enable transparency for this material
 							child.material.transparent = true;
 							child.material.depthWrite = false;
+
+							// Disable backface culling
+							child.material.side = THREE.DoubleSide;
 						}
 
 						// Set the texture
