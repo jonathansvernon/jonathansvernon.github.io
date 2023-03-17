@@ -3,12 +3,22 @@ body
 	margin: 0;
 }
 
+.container
+{
+	display: flex;
+
+	width: 100vw;
+	height: 100vh;
+}
+
 /* Sidebar */
 .ui-container
 {
+	display: flex;
+	flex-direction: column;
+
 	padding: 24px;
 
-	position: absolute;
 	height: 100%;
 
 	background-color: #444444;
@@ -37,4 +47,38 @@ body
 	height: 100%;
 
 	image-rendering: pixelated;
+}
+
+#glviewport
+{
+	flex-grow: 1;
+}
+
+#glviewport > canvas
+{
+	/* Use absolute positioning on the Three.js canvas so it will not prevent the parent div from shrinking */
+	position: absolute;
+}
+
+/* MOBILE */
+@media (max-aspect-ratio: 5/4)
+{
+	.container
+	{
+		flex-direction: column;
+	}
+
+	.ui-container
+	{
+		flex-direction: row;
+
+		width: 100%;
+		height: auto;
+	}
+
+	.ui-button
+	{
+		margin-bottom: 0;
+		margin-right: 24px;
+	}
 }

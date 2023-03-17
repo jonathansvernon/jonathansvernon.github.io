@@ -1,7 +1,9 @@
-_site
-.sass-cache
+.bundle
 .jekyll-cache
 .jekyll-metadata
+.sass-cache
+_site
+gems
 vendor
 start.sh
 Gemfile

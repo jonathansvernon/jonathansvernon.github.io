@@ -8,13 +8,14 @@ import { registerUserInterfaceBindings } from './user-interface.js';
 // Scene Setup
 // -----------
 export const scene = new THREE.Scene();
+const viewportDiv = document.getElementById("glviewport");
 
 // Set up renderer
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(viewportDiv.clientWidth, viewportDiv.clientHeight);
 renderer.setClearColor(0x888888, 1);
 
-document.body.appendChild(renderer.domElement);
+viewportDiv.appendChild(renderer.domElement);
 
 // Setup camera
 let cameraIsOrthographic = false;
@@ -26,18 +27,19 @@ function setupCamera(isOrthographic)
 	// Setup camera
 	if(isOrthographic)
 	{
-		camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 1000)
+		camera = new THREE.OrthographicCamera(viewportDiv.clientWidth / - 2, viewportDiv.clientWidth / 2, viewportDiv.clientHeight / 2, viewportDiv.clientHeight / - 2, 1, 1000)
 
 		camera.zoom = 18;
 		camera.updateProjectionMatrix();
 	}
 	else
 	{
-		camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000.0);
+		camera = new THREE.PerspectiveCamera(75, viewportDiv.clientWidth / viewportDiv.clientHeight, 0.1, 1000.0);
 	}
 
 	// Setup camera controls
 	cameraControls = new OrbitControls(camera, renderer.domElement);
+	cameraControls.enablePan = false;
 }
 
 setupCamera(cameraIsOrthographic);
@@ -54,11 +56,11 @@ scene.add(light);
 function onWindowResize()
 {
 	// Update camera
-	camera.aspect = (window.innerWidth / window.innerHeight);
+	camera.aspect = (viewportDiv.clientWidth / viewportDiv.clientHeight);
 	camera.updateProjectionMatrix();
 
 	// Update renderer
-	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.setSize(viewportDiv.clientWidth, viewportDiv.clientHeight);
 }
 
 window.addEventListener("resize", onWindowResize, false);
