@@ -32,8 +32,8 @@ title: {{ page.title }}
 
 	<!-- Buttons -->
 	<div class="project-buttons-container">
-		<a class="project-button" href="{{ page.download_link }}" target="_blank">Download {{ page.platform }}</a>
-		<a class="project-button" href="{{ page.source_link }}" target="_blank">Source Code</a>
+		{% if page.download_link %}<a class="project-button" href="{{ page.download_link }}" target="_blank">Download {{ page.platform }}</a>{% endif %}
+		{% if page.source_link %}<a class="project-button" href="{{ page.source_link }}" target="_blank">Source Code</a>{% endif %}
 	</div>
 
 	<!-- Description -->
