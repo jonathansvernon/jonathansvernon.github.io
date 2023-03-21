@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "./jsm/controls/OrbitControls.js"
 
-import { setBackground } from "./background.js";
+import { initSkybox, setBackground } from "./background.js";
 import { setLighting } from "./lighting.js";
 import { loadPlayerSkin } from "./player-model.js";
 import { registerUserInterfaceBindings } from "./user-interface.js";
@@ -62,9 +62,13 @@ setupCamera(cameraIsOrthographic);
 camera.position.z = 40;
 cameraControls.update();
 
-// Add light to the scene
+// Setup scene objects
+initSkybox();
 setLighting("none");
 setBackground("none");
+
+// Load default player skin (steve)
+loadPlayerSkin("./models/player/steve_wide.png", scene);
 
 // Listen for window resize
 function onWindowResize()
@@ -78,11 +82,6 @@ function onWindowResize()
 }
 
 window.addEventListener("resize", onWindowResize, false);
-
-// --------------
-// Model Creation
-// --------------
-loadPlayerSkin("./models/player/steve_wide.png", scene);
 
 // Bind user interface buttons to their functions
 registerUserInterfaceBindings();

@@ -7,51 +7,50 @@ import { currentLightType } from "./lighting.js";
 
 const backgroundModelLoader = new GLTFLoader();
 let backgroundModel = null;
-let backgroundModelName = "";
+let backgroundModelName = "none";
 let backgroundMetadata = null;
 
 let skyboxModel = null;
 const skyboxMaterial = new THREE.MeshBasicMaterial();
 
+export function initSkybox()
+{
+	new OBJLoader().load(
+		"./models/skybox.obj",
+		model =>
+		{
+			skyboxModel = model;
+
+			// Render skybox behind everything else
+			skyboxModel.renderOrder = -1;
+
+			skyboxMaterial.depthWrite = false;
+			skyboxMaterial.needsUpdate = true;
+
+			// Set material for skybox
+			skyboxModel.traverse(
+				child =>
+				{
+					if(child.isMesh)
+					{
+						child.material = skyboxMaterial;
+					}
+				}
+			);
+
+			// Add the skybox to the scene
+			scene.add(skyboxModel);
+		},
+		xhr => {},
+		error =>
+		{
+			console.log("Failed to load skybox model: " + error);
+		}
+	);
+}
+
 export function setBackground(backgroundName)
 {
-	// Update skybox model
-	if(skyboxModel == null)
-	{
-		new OBJLoader().load(
-			"./models/skybox.obj",
-			model =>
-			{
-				skyboxModel = model;
-
-				// Render skybox behind everything else
-				skyboxModel.renderOrder = -1;
-
-				skyboxMaterial.depthWrite = false;
-				skyboxMaterial.needsUpdate = true;
-
-				// Set material for skybox
-				skyboxModel.traverse(
-					child =>
-					{
-						if(child.isMesh)
-						{
-							child.material = skyboxMaterial;
-						}
-					}
-				);
-
-				// Add the skybox to the scene
-				scene.add(skyboxModel);
-			},
-			xhr => {},
-			error =>
-			{
-				console.log("Failed to load skybox model: " + error);
-			}
-		);
-	}
-
 	// Check if this background is different from the current one
 	if(backgroundName != backgroundModelName)
 	{
@@ -120,27 +119,25 @@ export function updateSkyColor()
 {
 	// Use noon skies when the light type is "none"
 	const lightType = (currentLightType == "none") ? "noon" : currentLightType;
-	
-	if(backgroundMetadata != null)
-	{
-		// Load the new skybox texture
-		new THREE.TextureLoader().load(
-			`./models/background/${backgroundModelName}/skybox/${backgroundMetadata["skybox-textures"][lightType]}.png`,
-			texture =>
-			{
-				skyboxMaterial.map = texture;
+	const desiredSkyboxName = (backgroundMetadata == null) ? lightType : backgroundMetadata["skybox-textures"][lightType];
 
-				// Set texture encoding to sRGB
-				skyboxMaterial.map.encoding = THREE.sRGBEncoding;
+	// Load the new skybox texture
+	new THREE.TextureLoader().load(
+		`./models/background/${backgroundModelName}/skybox/${desiredSkyboxName}.png`,
+		texture =>
+		{
+			skyboxMaterial.map = texture;
 
-				// Mark material for update
-				skyboxMaterial.needsUpdate = true;
-			},
-			xhr => {},
-			error =>
-			{
-				console.log("Failed to load skybox texture: " + error);
-			}
-		);
-	}
+			// Set texture encoding to sRGB
+			skyboxMaterial.map.encoding = THREE.sRGBEncoding;
+
+			// Mark material for update
+			skyboxMaterial.needsUpdate = true;
+		},
+		xhr => {},
+		error =>
+		{
+			console.log("Failed to load skybox texture: " + error);
+		}
+	);
 }
