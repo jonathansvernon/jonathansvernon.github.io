@@ -1,14 +1,57 @@
+import * as THREE from 'three';
 import { GLTFLoader } from "./jsm/loaders/GLTFLoader.js"
+import { OBJLoader } from "./jsm/loaders/OBJLoader.js";
 
 import { scene } from "./main.js";
+import { currentLightType } from "./lighting.js";
 
 const backgroundModelLoader = new GLTFLoader();
-
 let backgroundModel = null;
-let backgroundModelName = "none";
+let backgroundModelName = "";
+let backgroundMetadata = null;
+
+let skyboxModel = null;
+const skyboxMaterial = new THREE.MeshBasicMaterial();
 
 export function setBackground(backgroundName)
 {
+	// Update skybox model
+	if(skyboxModel == null)
+	{
+		new OBJLoader().load(
+			"./models/skybox.obj",
+			model =>
+			{
+				skyboxModel = model;
+
+				// Render skybox behind everything else
+				skyboxModel.renderOrder = -1;
+
+				skyboxMaterial.depthWrite = false;
+				skyboxMaterial.needsUpdate = true;
+
+				// Set material for skybox
+				skyboxModel.traverse(
+					child =>
+					{
+						if(child.isMesh)
+						{
+							child.material = skyboxMaterial;
+						}
+					}
+				);
+
+				// Add the skybox to the scene
+				scene.add(skyboxModel);
+			},
+			xhr => {},
+			error =>
+			{
+				console.log("Failed to load skybox model: " + error);
+			}
+		);
+	}
+
 	// Check if this background is different from the current one
 	if(backgroundName != backgroundModelName)
 	{
@@ -23,8 +66,20 @@ export function setBackground(backgroundName)
 		// Load the new background model
 		if(backgroundName != "none")
 		{
+			const backgroundPathNoExt = `./models/background/${backgroundName}/background`;
+
+			// Load background metadata and update sky color
+			fetch(`${backgroundPathNoExt}.json`).then(
+				(response) => response.json()
+			).then(
+				(data) => (backgroundMetadata = data)
+			).then(
+				updateSkyColor()
+			);
+
+			// Load the background model
 			backgroundModelLoader.load(
-				`./models/background/${backgroundName}.glb`,
+				`${backgroundPathNoExt}.glb`,
 				model =>
 				{
 					backgroundModel = model.scene;
@@ -58,5 +113,34 @@ export function setBackground(backgroundName)
 				}
 			);
 		}
+	}
+}
+
+export function updateSkyColor()
+{
+	// Use noon skies when the light type is "none"
+	const lightType = (currentLightType == "none") ? "noon" : currentLightType;
+	
+	if(backgroundMetadata != null)
+	{
+		// Load the new skybox texture
+		new THREE.TextureLoader().load(
+			`./models/background/${backgroundModelName}/skybox/${backgroundMetadata["skybox-textures"][lightType]}.png`,
+			texture =>
+			{
+				skyboxMaterial.map = texture;
+
+				// Set texture encoding to sRGB
+				skyboxMaterial.map.encoding = THREE.sRGBEncoding;
+
+				// Mark material for update
+				skyboxMaterial.needsUpdate = true;
+			},
+			xhr => {},
+			error =>
+			{
+				console.log("Failed to load skybox texture: " + error);
+			}
+		);
 	}
 }

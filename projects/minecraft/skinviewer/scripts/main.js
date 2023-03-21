@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "./jsm/controls/OrbitControls.js"
 
+import { setBackground } from "./background.js";
 import { setLighting } from "./lighting.js";
 import { loadPlayerSkin } from "./player-model.js";
 import { registerUserInterfaceBindings } from "./user-interface.js";
@@ -16,13 +17,15 @@ const renderer = new THREE.WebGLRenderer({ alpha: false, antialias: false });
 
 renderer.setSize(viewportDiv.clientWidth, viewportDiv.clientHeight);
 renderer.setClearColor(0x888888, 1);
-
 renderer.outputEncoding = THREE.sRGBEncoding;
-
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.BasicShadowMap;
 
 viewportDiv.appendChild(renderer.domElement);
+
+export function TEMP_setRendererClearColor(clearColor)
+{
+	renderer.setClearColor(clearColor, 1);
+}
 
 // Setup camera
 let cameraIsOrthographic = false;
@@ -61,6 +64,7 @@ cameraControls.update();
 
 // Add light to the scene
 setLighting("none");
+setBackground("none");
 
 // Listen for window resize
 function onWindowResize()

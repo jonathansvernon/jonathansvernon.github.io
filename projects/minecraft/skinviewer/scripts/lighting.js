@@ -1,6 +1,9 @@
 import * as THREE from "three";
 
 import { scene } from "./main.js";
+import { updateSkyColor } from "./background.js";
+
+export let currentLightType = "none";
 
 // Ambient light
 const ambientLight = new THREE.AmbientLight(0xFFFFFF);
@@ -25,6 +28,11 @@ directionalLight.shadow.camera.far = 500;
 
 export function setLighting(lightType)
 {
+	currentLightType = lightType;
+
+	// Update sky color
+	updateSkyColor();
+
 	// Remove all lighting from the scene
 	scene.remove(ambientLight);
 	scene.remove(hemisphereLight);
@@ -41,27 +49,31 @@ export function setLighting(lightType)
 		// Set light values depending on time of day
 		if(lightType == "sunrise")
 		{
-			directionalLight.position.set(0, 10, 100);
+			directionalLight.position.set(0, 15, 100);
+			directionalLight.intensity = 0.125;
 
 			hemisphereLight = new THREE.HemisphereLight(0xFF764D, 0x444444, 0.25);
 		}
 		else if(lightType == "morning")
 		{
 			directionalLight.position.set(0, 100, 100);
+			directionalLight.intensity = 0.25;
 
 			hemisphereLight = new THREE.HemisphereLight(0xFFFFBD, 0x444444, 0.45);
 		}
 		else if(lightType == "noon")
 		{
 			directionalLight.position.set(0, 100, 0);
+			directionalLight.intensity = 0.25;
 
 			hemisphereLight = new THREE.HemisphereLight(0xFFFFFF, 0x444444, 0.6);
 		}
 		else if(lightType == "night")
 		{
 			directionalLight.position.set(0, 100, 0);
+			directionalLight.intensity = 0.005;
 
-			hemisphereLight = new THREE.HemisphereLight(0xFFFFFF, 0x444444, 0.05);
+			hemisphereLight = new THREE.HemisphereLight(0x444444, 0x444444, 0.1);
 		}
 
 		scene.add(hemisphereLight);

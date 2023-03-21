@@ -87,11 +87,6 @@ export function loadPlayerModel()
 							// Disable backface culling
 							child.material.side = THREE.DoubleSide;
 						}
-						else
-						{
-							// Only cast shadows on main body parts
-							child.castShadow = true;
-						}
 
 						// Set the texture
 						child.material.map = playerTexture;
