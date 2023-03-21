@@ -178,5 +178,13 @@ body
 	.ui-button
 	{
 		margin: auto 1rem;
+
+		width: 4.75rem;
+		height: 4.75rem;
+	}
+
+	.ui-button > img
+	{
+		width: auto;
 	}
 }
